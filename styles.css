@@ -3,7 +3,16 @@ a:link {
     background-color: transparent;
     text-decoration: none;
 }
-  
+body {
+    background-image: url('background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}  
+.opacity {
+    background-color: #ffffff;
+    opacity: 0.7;
+}
 a:visited {
     color: grey;
     background-color: transparent;
