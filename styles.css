@@ -3,35 +3,36 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    font-family: 'Courier New', Courier, monospace;
 }  
+h1{
+    font-weight: bold;
+}
 #jmclogo{
     height: 56px;
 }
 #JohnEstes{
-    height: 400px;
+    height: 350px;
 }
 .contact:link {
     color: black;
-    background-color: transparent;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .contact:visited {
-    color: grey;
-    background-color: transparent;
-    text-decoration: none;
+    color: rgb(49, 49, 49);
+    text-decoration: underline;
 }
   
 .contact:hover {
-    color: rgb(10, 10, 46);
-    background-color: transparent;
-    text-decoration: underline;
+    color: rgb(109, 109, 109);
+    text-decoration: none;
 }
 .project{
     height: 300px;
 }
 .opacity {
-    background: rgba(219, 219, 219, 0.6);
+    background: rgba(219, 219, 219, 0.7);
 }
 .bs-example{
     margin: 20px;
