@@ -27,6 +27,9 @@ h2{
 #JohnEstes{
     height: 350px;
 }
+.nav-item {
+    text-shadow: 1px 1px 7px white;
+}
 .contact:link {
     color: black;
     text-decoration: underline;
