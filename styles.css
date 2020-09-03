@@ -5,7 +5,7 @@ body {
     background-size: cover;
     font-family: 'Courier New', Courier, monospace;
 }
-@media only screen and (max-width: 480px)  {
+@media (max-width: 576px)  {
     h2 {
         font-weight: bold;
         font-size: 26px;
@@ -28,7 +28,7 @@ h2{
     height: 350px;
 }
 .nav-item {
-    text-shadow: 1px 1px 7px white;
+    text-shadow: 1px 1px 7px #000;
 }
 .contact:link {
     color: black;
