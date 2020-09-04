@@ -12,7 +12,11 @@
     .col-lg-6{
         padding-top: 1em;
     }
-}body {
+    .opacity {
+        background: rgba(219, 219, 219, 0.85);
+    }
+}
+body {
     background-image: url('background.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
