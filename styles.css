@@ -1,16 +1,16 @@
 @media (max-width: 992px)  {
     h2 {
         font-weight: bold;
-        font-size: 26px;
-    }
-    h4 {
         font-size: 20px;
     }
-    h5 {
+    h4 {
         font-size: 16px;
     }
+    h5 {
+        font-size: 12px;
+    }
     .col-lg-6{
-        padding-top: 1em;
+        padding-top: .5em;
     }
     .opacity {
         background: rgba(245, 245, 245, 0.95);
@@ -61,7 +61,7 @@ button{
     height: 300px;
 }
 .opacity {
-    background: rgba(219, 219, 219, 0.7);
+    background: rgba(219, 219, 219, 0.95);
 }
 .bs-example{
     margin: 20px;
