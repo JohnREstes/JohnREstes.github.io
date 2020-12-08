@@ -72,3 +72,6 @@ body{
 .nav-item{
     font-size: 22pt;
 }
+.projects{
+    max-height: 400px;
+}
