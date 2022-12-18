@@ -7,7 +7,11 @@ const stickyNav = navbar.offsetTop;
 
 const observer = new IntersectionObserver(entries => {
     console.log(entries);
-    navbar.classList.toggle("sticky", !(entries[0].isIntersecting));
+    if(!(entries[0].isIntersecting)){
+        navbar.classList.toggle("sticky");
+        root.style.setProperty("--animation-duration", "0s")
+    }
+
 },{
     rootMargin: (stickyNav + "px")
 });
