@@ -72,12 +72,13 @@ body {
     margin: clamp(1em, 5vw, 5rem);
     background-color: black;
     opacity: .75;
+    font-size: var(--font-size);
 }
 
 .first {
     position: relative;
     background: var(--bg-color);
-    height: calc(100vh - 65px);
+    height: calc(100vh - 75px);
 }
 .second {
     position: relative;
@@ -101,7 +102,6 @@ body {
     grid-template-columns: auto auto;
     grid-column-gap: 50px;
     grid-row-gap: 10px;
-    background-color: #2196F3;
     padding: 10px;
     justify-content: center;
 }
