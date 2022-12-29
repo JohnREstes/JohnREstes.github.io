@@ -2,7 +2,7 @@
     --bg-color: hsl(0, 0%, 20%);
     --font-lightness: 96%;
     --font-color: hsl(0, 0%, var(--font-lightness));
-    --font-size: clamp(.65em, 2vw + .4em, 6em);
+    --font-size: clamp(.55em, 2vw + .4em, 6em);
     --typeWriterSpeed: 2s;
     --numberOfSteps: 29;
     --animation-duration: calc(var(--typeWriterSpeed) + 2s);
@@ -238,8 +238,8 @@ body {
   }
   @media screen and (max-width: 600px)  {
     .gridObject{
-        height: 200px;
-        width: 325px;
+        height: 175px;
+        width: 275px;
     }
     .mainImg {
         position: absolute;
