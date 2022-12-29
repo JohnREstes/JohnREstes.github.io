@@ -2,7 +2,7 @@
     --bg-color: hsl(0, 0%, 20%);
     --font-lightness: 96%;
     --font-color: hsl(0, 0%, var(--font-lightness));
-    --font-size: clamp(.95em, 2vw + .4em, 6em);
+    --font-size: clamp(.65em, 2vw + .4em, 6em);
     --typeWriterSpeed: 2s;
     --numberOfSteps: 29;
     --animation-duration: calc(var(--typeWriterSpeed) + 2s);
@@ -28,15 +28,11 @@ body {
     left: 0;
 }
 .nav-bottom{
-    position: relative;
+    position: sticky;
     padding: 5px;
-    bottom: 0;
+    bottom: 0px;
     background-color: var(--bg-color);
     z-index: 10;
-}
-.nav-top{
-    position: fixed;
-    top:0;
 }
 .nav ul{
     margin: 0;
@@ -78,7 +74,7 @@ body {
 .first {
     position: relative;
     background: var(--bg-color);
-    height: calc(100vh - 75px);
+    height: 100vh;
 }
 .second {
     position: relative;
@@ -175,7 +171,7 @@ body {
 .subtitle {
     font-size: calc( .8 * (var(--font-size)));
     opacity: 0;
-    transform: translateY(2em);
+    padding-left: 0;
     animation: fadeInUp 1s ease var(--animation-duration) forwards;
 }
 
@@ -220,7 +216,6 @@ body {
     }
 }
 .background{
-    
     position: absolute;
     height: 100%;
     width: 100%;
@@ -239,5 +234,16 @@ body {
     }
     .projectGrid{
     grid-template-columns: auto;
+    }
+  }
+  @media screen and (max-width: 600px)  {
+    .gridObject{
+        height: 200px;
+        width: 325px;
+    }
+    .mainImg {
+        position: absolute;
+        width: 50%;
+        top: 10%;
     }
   }
