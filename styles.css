@@ -13,7 +13,7 @@ body {
     margin:0;
     font-family: 'Space Mono', monospace;
     color: var(--font-color);
-    
+    scroll-behavior: smooth;
 }
 .container {
     height: 100vh;
