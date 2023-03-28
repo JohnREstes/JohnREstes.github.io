@@ -8,12 +8,10 @@
     --animation-duration: calc(var(--typeWriterSpeed) + 2s);
     --height: 0px;
 }
-
 body {
     margin:0;
     font-family: 'Space Mono', monospace;
     color: var(--font-color);
-    scroll-behavior: smooth;
 }
 .container {
     height: 100vh;
@@ -21,6 +19,7 @@ body {
     overflow-x: hidden;
     perspective: 10px;
     background: var(--bg-color);
+    scroll-behavior: smooth;
 }
 .nav{
     width: 100%;
