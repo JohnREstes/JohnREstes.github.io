@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang=en-GB>
+<head>
+  <meta charset=utf-8>
+  <meta http-equiv=X-UA-Compatible content="IE=edge">
+  <title>Modal dialog iframe stand-alone demo</title>
+  <meta name=description content="Modal dialog iframe stand-alone demo">
+  <link rel=canonical href="https://websemantics.uk/articles/accessible-modal-dialog-popup-iframe/">
+  <meta name=viewport content="width=device-width, initial-scale=1.0">
+
+  <style id=not_required_just_tidy_like>
+
+html{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+*,:after,:before{-moz-box-sizing:inherit;-webkit-box-sizing:inherit;box-sizing:inherit}
+html{font:16px/1.5 sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body,button{text-rendering:optimizeLegibility}
+body{color:#3a2c49;margin:0;text-align:center;
+/* SVG not checked in IE */
+background-image: url("data:image/svg+xml;utf8,<svg style='opacity:.75' width='1200' height='256' viewBox='0 0 1200 256' xmlns='http://www.w3.org/2000/svg'><defs><filter id='noise'><feTurbulence type='fractalNoise' baseFrequency='.4'></feTurbulence></filter></defs><rect height='256' width='1200' filter='url(%23noise)' opacity='0.3'/></svg>");
+}
+h1,h2{color:#4B3D5A;font-weight:normal}
+h1{margin:0 auto;font-size:38px;}
+h2{font-size:22px;margin:3rem 0 1rem}
+header{font-size:20px;padding:2.618rem;background-color:rgba(35,110,206,.15);color:#3a2c49;}
+.content {text-align:center;padding:2.618rem;}
+.header_copy,
+.content_copy {max-width:36rem;margin:2rem auto;text-align:left;}
+.header_copy > :last-child {margin-bottom:0}
+.content_copy > :first-child {margin-top:0}
+/* Links revisited */
+a {
+  color: #236ECE; /* Must have sufficient colour contrast against the background colour */
+  padding: 0 1px; /* Left and right need more clearance to keep the outline away from text */
+  text-decoration: none; /* Too close to text so use a bottom border instead */
+  border: 1px solid transparent; /* Keeping focus outline away from the text */
+  border-bottom-color: rgba(35,110,206,.25); /* LINK COLOUR AT 25% OPACITY (Maybe it should pass colour contrast too?) */
+  transition:  /* Gentle on the eyes */
+    box-shadow .1s ease-in,
+    background-color .1s ease-in,
+    border-color .1s ease-in;
+}
+a:visited {
+  color: hsl(214, 71%, 47%); /* #236ECE || rgb(35,110,206) */
+  border-bottom-color: rgba(35,110,206,.5); /* LINK COLOUR AT 50% OPACITY */
+  /* border-bottom-color: #551A8B; OR DEFAULT VISITED PURPLE COLOUR */
+}
+a:hover,
+a:focus,
+a:active {
+  background-color: #fff; /* Must increase colour contrast on hover | focus, not reduce */
+}
+a:hover,
+a:active {
+  border-bottom-color: #236ECE; /* LINK COLOUR */
+  /* border-bottom-color: #0000EE; OR DEFAULT LINK BLUE COLOUR */
+  box-shadow: 0 0 .125rem .25rem #fff;
+}
+a:focus {
+  outline: 0 solid; /* Override the default focus outline with box-shadow */
+  border-color: #fff; /* border keeps outline away from text */
+  box-shadow: 0 0 .125rem .25rem rgba(64, 128, 255, 0.7); /* DEFAULT FOCUS OUTLINE COLOUR */
+}
+
+  </style>
+
+
+  <link rel=stylesheet href="test-modal.css">
+
+
+</head>
+<body>
+
+  <main id=content class=-modal> <!-- Class -modal has -model-open added -->
+    <div class=content>
+      <div class=content_copy>
+
+        <h2>Launch from link (recommended)</h2>
+        <p>
+          <a
+            class="lnk_modal-open" href="https://www.google.com/maps/place/147+Wardour+St,+Soho,+London+W1F+8WD,+UK/@51.514197,-0.134724,16z/data=!4m5!3m4!1s0x487604d357825039:0xf0c170d8fa918a9b!8m2!3d51.5141967!4d-0.1347244?hl=en-GB"
+            data-modal="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4175.8218601402605!2d-0.1390235133502716!3d51.51397674271494!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604d357825039%3A0xf0c170d8fa918a9b!2s147+Wardour+St%2C+Soho%2C+London+W1F+8WD%2C+UK!5e0!3m2!1sen!2sin!4v1468326690641"
+
+            data-modalTitle="Launched from link"
+            data-modalDesc=""
+          >
+            Wine bar location (interactive map)
+          </a>
+        </p>
+
+      </div>
+    </div>
+  </main>
+
+<!-- <script src="modal-dialog.4.1.js"></script> -->
+<script src="test-modal.js"></script>
+
+<script>
+
+// Instansiate Model
+var modal = new ModalDialog({
+
+    // Take care changing modal name it affects almost everything:
+    // all class names, except SVGs, and all data attribute names
+    modalName : "modal",
+
+    openClass : "-open",            // is default ("-" + modaName automatically prepended)
+    lightboxClass : "lightbox",     // is default (modaName + "_" automatically prepended)
+    svgCloseId : "icon-cross",      // default
+    svgCloseClass : "svg-close",    // default
+    svgLoadingId : "icon-loading",  // default
+    svgLoadingClass : "svg-loading" // default
+
+  }, window, document, debounce);
+
+</script>
+</body>
+</html>
