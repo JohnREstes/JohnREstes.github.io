@@ -12,7 +12,8 @@ const linkObject = {
     tictactoe: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/22-Tic_Tac_Toe/index.html",
     war: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/24-War/index.html",
     rpsls: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/25-RPSLS/index.html",
-    weather: "http://dondeestasyolanda.com/weather/"
+    weather: "http://dondeestasyolanda.com/weather/",
+    '456': "https://456word.com/"
 };
 
 const observer = new IntersectionObserver(entries => {
@@ -28,13 +29,14 @@ observer.observe(first)
 
 gridObject.forEach(obj =>{
     obj.onclick = (e) =>{
-        if(e.target.id === 'weather' || e.target.parentNode.id === 'weather'){
+        if(e.target.id === 'weather' || e.target.parentNode.id === 'weather' || e.target.id === '456' || e.target.parentNode.id === '456'){
             e.target.id == "" ? 
             window.open(linkObject[e.target.parentNode.id]) : 
             window.open(linkObject[e.target.id]); 
+        } else {
+            e.target.id == "" ? 
+            window.open(`https://htmlpreview.github.io/?${linkObject[e.target.parentNode.id]}`) : 
+            window.open(`https://htmlpreview.github.io/?${linkObject[e.target.id]}`);
         }
-        e.target.id == "" ? 
-        window.open(`https://htmlpreview.github.io/?${linkObject[e.target.parentNode.id]}`) : 
-        window.open(`https://htmlpreview.github.io/?${linkObject[e.target.id]}`);
     }
 })
