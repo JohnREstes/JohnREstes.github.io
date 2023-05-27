@@ -5,6 +5,7 @@ const projects = document.querySelectorAll(".project");
 const modal = document.getElementById("myModal");
 const closeModal = document.getElementById("closeModal"); 
 const projectIframe = document.getElementById("projectIframe"); 
+const loader = document.getElementById("loaderDiv");
 const stickyNav = navbar.offsetTop;
 const linkObject = {
     todo: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/12-Todo%20List/index.html",
@@ -32,6 +33,7 @@ observer.observe(first)
 
 projects.forEach(project =>{
     project.onclick = (e) =>{
+        loader.style.zIndex = 20;
         modal.classList.add('show');
         if(e.target.id === '456'){
             projectIframe.src = linkObject[e.target.id]
@@ -54,4 +56,12 @@ window.onclick = function(event) {
   if (event.target == modal) {
     modal.classList.remove('show');
   }
+}
+
+projectIframe.addEventListener("load", removeLoader);
+
+function removeLoader() {
+    setTimeout(()=>{
+        loader.style.zIndex = -20;
+    },500)
 }
