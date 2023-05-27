@@ -33,8 +33,11 @@ observer.observe(first)
 projects.forEach(project =>{
     project.onclick = (e) =>{
         modal.classList.add('show');
-        if(e.target.id === 'weather' || e.target.id === '456'){
+        if(e.target.id === '456'){
             projectIframe.src = linkObject[e.target.id]
+        } else if(e.target.id === 'weather' ){
+            projectIframe.src = linkObject[e.target.id]  
+            projectIframe.scrolling = 'yes';          
         } else {
             projectIframe.src = `https://htmlpreview.github.io/?${linkObject[e.target.id]}`
         }
