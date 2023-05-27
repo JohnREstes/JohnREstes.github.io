@@ -1,7 +1,10 @@
 const root = document.querySelector(':root')
 const first = document.querySelector('.first')
 const navbar = document.getElementById("navbar");
-const gridObject = document.querySelectorAll(".gridObject");
+const projects = document.querySelectorAll(".project");
+const modal = document.getElementById("myModal");
+const closeModal = document.getElementById("closeModal"); 
+const projectIframe = document.getElementById("projectIframe"); 
 const stickyNav = navbar.offsetTop;
 const linkObject = {
     todo: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/12-Todo%20List/index.html",
@@ -27,16 +30,25 @@ const observer = new IntersectionObserver(entries => {
 
 observer.observe(first)
 
-gridObject.forEach(obj =>{
-    obj.onclick = (e) =>{
-        if(e.target.id === 'weather' || e.target.parentNode.id === 'weather' || e.target.id === '456' || e.target.parentNode.id === '456'){
-            e.target.id == "" ? 
-            window.open(linkObject[e.target.parentNode.id]) : 
-            window.open(linkObject[e.target.id]); 
+projects.forEach(project =>{
+    project.onclick = (e) =>{
+        modal.classList.add('show');
+        if(e.target.id === 'weather' || e.target.id === '456'){
+            projectIframe.src = linkObject[e.target.id]
         } else {
-            e.target.id == "" ? 
-            window.open(`https://htmlpreview.github.io/?${linkObject[e.target.parentNode.id]}`) : 
-            window.open(`https://htmlpreview.github.io/?${linkObject[e.target.id]}`);
+            projectIframe.src = `https://htmlpreview.github.io/?${linkObject[e.target.id]}`
         }
     }
 })
+
+// When the user clicks on <span> (x), close the modal
+closeModal.onclick = function() {
+    modal.classList.remove('show');
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.classList.remove('show');
+  }
+}

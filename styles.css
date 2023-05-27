@@ -247,3 +247,48 @@ body {
         top: 10%;
     }
   }
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: absolute; /* Stay in place */
+    z-index: 15; /* Sit on top */
+    padding: 5px; /* Location of the box */
+    padding-top: 10px;
+    left: 0;
+    top: 0;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
+    overflow: none; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+  
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    width: 95%;
+    height: 95%;
+}
+  
+/* The Close Button */
+#closeModal {
+    position: absolute;
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    right: 5px;
+}
+  
+#closeModal:hover,
+#closeModal:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.show{
+    display: block;
+}
