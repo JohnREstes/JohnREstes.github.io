@@ -65,3 +65,13 @@ function removeLoader() {
         loader.style.zIndex = -20;
     },500)
 }
+<script>
+  $(document).ready(function() {
+    $('.carousel').slick({
+      // Configuration options
+      dots: true,
+      autoplay: true,
+      autoplaySpeed: 2000,
+    });
+  });
+</script>
