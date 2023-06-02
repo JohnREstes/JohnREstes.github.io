@@ -35,6 +35,9 @@ projects.forEach(project =>{
     project.onclick = (e) =>{
         loader.style.zIndex = 20;
         modal.classList.add('show');
+        setTimeout(()=>{
+            loader.style.zIndex = -20;
+        },1250)
         if(e.target.id === '456'){
             projectIframe.src = linkObject[e.target.id]
         } else if(e.target.id === 'weather' ){
