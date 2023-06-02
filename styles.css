@@ -320,12 +320,32 @@ body {
   }
   .carousel{
     position: relative;
+    perspective: 0px;
+    transform-origin: 50%;
   }
   .frame{
-    margin: 10px;
+    margin: 15px;
     margin-top: 70px;
     border: 1px black solid;
     background-color: aqua;
     position: absolute;
     inset:  0 0 0 0;
+  }
+.arrow{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0; 
+    height: 0; 
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;  
+}
+  #arrow-right {
+    left: 10px;
+    border-left: 20px solid green;
+  }
+  
+  #arrow-left {
+    right: 10px;
+    border-right:20px solid blue; 
   }
