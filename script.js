@@ -32,7 +32,7 @@ const linkObject = {
     weather: "http://dondeestasyolanda.com/weather/",
     '456': "https://456word.com/"
 };
-const images = ["./projects/456.png", "./projects/weather.png", "./projects/Todo.png", "./projects/Tip.png", "./projects/Calc.png", "./projects/Shop.png", "./projects/hangman.png", "./projects/tictactoe.png", "./projects/War.png", "./projects/RPSLS.png"];
+const imagesArray = ["./projects/456.png", "./projects/weather.png", "./projects/Todo.png", "./projects/Tip.png", "./projects/Calc.png", "./projects/Shop.png", "./projects/hangman.png", "./projects/tictactoe.png", "./projects/War.png", "./projects/RPSLS.png"];
 
 const observer = new IntersectionObserver(entries => {
     if(!(entries[0].isIntersecting)){
@@ -85,54 +85,49 @@ function removeLoader() {
 const leftArrow = document.getElementById('arrow-left');
 const rightArrow = document.getElementById('arrow-right');
 
-leftArrow.addEventListener('click', ()=>{
-    changeIframe('left');
-})
-rightArrow.addEventListener('click', ()=>{
-    changeIframe('right');
-})
-var imgNum = 0;
-function changeIframe(dir){
-    let id, left, right;
-    if(dir === 'left'){
-        imgNum --
-        if(imgNum === -1) imgNum = images.length - 1;
-        carouselImage[0].style.transform = 'translateX(0)'
-        carouselImage[1].style.transform = 'translateX(100%)'
-        carouselImage[2].style.transform = 'translateX(200%)'
-    }else if(dir === 'right'){
-        imgNum ++
-        if(imgNum === images.length) imgNum = 0;
-        carouselImage[2].style.transform = 'translateX(0)'
-        carouselImage[1].style.transform = 'translateX(-100%)'
-        carouselImage[0].style.transform = 'translateX(-200%)'
-    }
-    carouselImage[0].style.transition = '';  
-    carouselImage[1].style.transition = '';
-    carouselImage[2].style.transition = ''; 
-    carouselImage.forEach(img =>{
-        img.addEventListener('transitionend', ()=>{
-            left = imgNum - 1;
-            right = imgNum + 1;
-            if(left === -1) left = images.length - 1;
-            if(right === images.length) right = 0;    
-            carouselImage[0].src = images[left];   
-            carouselImage[1].src = images[imgNum];
-            carouselImage[2].src = images[right];          
-            carouselImage[0].style.transform = 'translateX(-100%)'
-            carouselImage[1].style.transform = 'translateX(0)'
-            carouselImage[2].style.transform = 'translateX(100%)'
-            id = extractId(images[imgNum]);
-            carouselImage[1].id = id;        
-        })
-    })
+// leftArrow.addEventListener('click', ()=>{
+//     changeIframe('left');
+// })
+// rightArrow.addEventListener('click', ()=>{
+//     changeIframe('right');
+// })
+const carousel = document.querySelector('.frame');
+const carouselImages = document.querySelector('.carousel-images');
+const images = Array.from(document.querySelectorAll('.carousel-images img'));
 
+let currentIndex = 0;
+const imageWidth = carousel.clientWidth;
+let forwardDirection = true;
+
+function slideTo(index) {
+  currentIndex = index;
+  const translateXValue = -currentIndex * imageWidth;
+  carouselImages.style.transform = `translateX(${translateXValue}px)`;
 }
-function extractId(str){
-  // Get the index of the last occurrence of the dot character.
-  const dotIndex = str.lastIndexOf('.');
-  // Get the index of the last occurrence of the slash character before the dot character.
-  const slashIndex = str.lastIndexOf('/', dotIndex - 1);
-  // Return the substring of the string from the slash character to the dot character.
-  return str.substring(slashIndex + 1, dotIndex);
+
+function slideNext() {
+  if (currentIndex === images.length - 1) {
+    forwardDirection = false;
+    return;
+  } else {
+    slideTo(currentIndex + 1);
+  }
 }
+
+function slidePrev() {
+  if (currentIndex === 0) {
+    forwardDirection = true;
+    return;
+  } else {
+    slideTo(currentIndex - 1);
+  }
+}
+
+setInterval(()=>{
+  if(!forwardDirection)slidePrev();
+  else  slideNext();
+}, 4000); // Automatically slide to the next image every 5 seconds
+
+//Optional: Add event listeners for next and previous buttons
+rightArrow.addEventListener('click', slideNext);
+leftArrow.addEventListener('click', slidePrev);
