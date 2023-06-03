@@ -98,22 +98,29 @@ function changeIframe(dir){
         imgNum --
         if(imgNum === -1) imgNum = images.length - 1;
         carouselImage[0].style.transform = 'translateX(0)'
+        carouselImage[1].style.transform = 'translateX(100%)'
+        carouselImage[2].style.transform = 'translateX(200%)'
     }else if(dir === 'right'){
         imgNum ++
         if(imgNum === images.length) imgNum = 0;
         carouselImage[2].style.transform = 'translateX(0)'
+        carouselImage[1].style.transform = 'translateX(-100%)'
+        carouselImage[0].style.transform = 'translateX(-200%)'
     }
     carouselImage.forEach(img =>{
         img.addEventListener('transitionend', ()=>{
-            // left = imgNum - 1;
-            // right = imgNum + 1;
-            // if(left === -1) left = images.length - 1;
-            // if(right === images.length) right = 0;    
-            // carouselImage[0].src = images[left];   
-            // carouselImage[1].src = images[imgNum];
-            // carouselImage[2].src = images[right];
-            // id = extractId(images[imgNum]);
-            // carouselImage[1].id = id;        
+            left = imgNum - 1;
+            right = imgNum + 1;
+            if(left === -1) left = images.length - 1;
+            if(right === images.length) right = 0;    
+            carouselImage[0].src = images[left];   
+            carouselImage[1].src = images[imgNum];
+            carouselImage[2].src = images[right];
+            carouselImage[0].style.transform = 'translateX(-100%)'
+            carouselImage[1].style.transform = 'translateX(0)'
+            carouselImage[2].style.transform = 'translateX(100%)'
+            id = extractId(images[imgNum]);
+            carouselImage[1].id = id;        
         })
     })
 
