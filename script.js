@@ -8,7 +8,7 @@ const projectIframe = document.getElementById("projectIframe");
 const loader = document.getElementById("loaderDiv");
 const carouselImage = document.querySelectorAll('[data-image]');
 const stickyNav = navbar.offsetTop;
-const linkObjectOld = {
+const linkObject = {
     todo: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/12-Todo%20List/index.html",
     tip: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/11-Tip%20Calculator/index.html",
     calc: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/10-Calculator/index.html",
@@ -20,7 +20,7 @@ const linkObjectOld = {
     weather: "http://dondeestasyolanda.com/weather/",
     '456': "https://456word.com/"
 };
-const linkObject = {
+const linkObjectNew = {
     Todo: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/12-Todo%20List/index.html",
     Tip: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/11-Tip%20Calculator/index.html",
     Calc: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/10-Calculator/index.html",
@@ -32,7 +32,6 @@ const linkObject = {
     weather: "http://dondeestasyolanda.com/weather/",
     '456': "https://456word.com/"
 };
-const imagesArray = ["./projects/456.png", "./projects/weather.png", "./projects/Todo.png", "./projects/Tip.png", "./projects/Calc.png", "./projects/Shop.png", "./projects/hangman.png", "./projects/tictactoe.png", "./projects/War.png", "./projects/RPSLS.png"];
 
 const observer = new IntersectionObserver(entries => {
     if(!(entries[0].isIntersecting)){
@@ -47,6 +46,7 @@ observer.observe(first)
 
 projects.forEach(project =>{
     project.onclick = (e) =>{
+        console.log(e.target.id);
         loader.style.zIndex = 20;
         modal.classList.add('show');
         setTimeout(()=>{
@@ -82,15 +82,7 @@ function removeLoader() {
         loader.style.zIndex = -20;
     },500)
 }
-const leftArrow = document.getElementById('arrow-left');
-const rightArrow = document.getElementById('arrow-right');
 
-// leftArrow.addEventListener('click', ()=>{
-//     changeIframe('left');
-// })
-// rightArrow.addEventListener('click', ()=>{
-//     changeIframe('right');
-// })
 const carousel = document.querySelector('.frame');
 const carouselImages = document.querySelector('.carousel-images');
 const images = Array.from(document.querySelectorAll('.carousel-images img'));
@@ -128,6 +120,7 @@ setInterval(()=>{
   else  slideNext();
 }, 4000); // Automatically slide to the next image every 5 seconds
 
-//Optional: Add event listeners for next and previous buttons
+const leftArrow = document.getElementById('arrow-left');
+const rightArrow = document.getElementById('arrow-right');
 rightArrow.addEventListener('click', slideNext);
 leftArrow.addEventListener('click', slidePrev);
