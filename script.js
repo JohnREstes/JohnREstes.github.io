@@ -6,7 +6,7 @@ const modal = document.getElementById("myModal");
 const closeModal = document.getElementById("closeModal"); 
 const projectIframe = document.getElementById("projectIframe"); 
 const loader = document.getElementById("loaderDiv");
-const carouselImage = document.querySelector('[data-image]');
+const carouselImage = document.querySelectorAll('[data-image]');
 const stickyNav = navbar.offsetTop;
 const linkObjectOld = {
     todo: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/12-Todo%20List/index.html",
@@ -93,17 +93,30 @@ rightArrow.addEventListener('click', ()=>{
 })
 var imgNum = 0;
 function changeIframe(dir){
-    let id;
+    let id, left, right;
     if(dir === 'left'){
         imgNum --
         if(imgNum === -1) imgNum = images.length - 1;
+        carouselImage[0].style.transform = 'translateX(0)'
     }else if(dir === 'right'){
         imgNum ++
         if(imgNum === images.length) imgNum = 0;
+        carouselImage[2].style.transform = 'translateX(0)'
     }
-    carouselImage.src = images[imgNum];
-    id = extractId(images[imgNum]);
-    carouselImage.id = id;
+    carouselImage.forEach(img =>{
+        img.addEventListener('transitionend', ()=>{
+            // left = imgNum - 1;
+            // right = imgNum + 1;
+            // if(left === -1) left = images.length - 1;
+            // if(right === images.length) right = 0;    
+            // carouselImage[0].src = images[left];   
+            // carouselImage[1].src = images[imgNum];
+            // carouselImage[2].src = images[right];
+            // id = extractId(images[imgNum]);
+            // carouselImage[1].id = id;        
+        })
+    })
+
 }
 function extractId(str){
   // Get the index of the last occurrence of the dot character.
