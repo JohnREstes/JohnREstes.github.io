@@ -20,18 +20,6 @@ const linkObject = {
     weather: "http://dondeestasyolanda.com/weather/",
     '456': "https://456word.com/"
 };
-const linkObjectNew = {
-    Todo: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/12-Todo%20List/index.html",
-    Tip: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/11-Tip%20Calculator/index.html",
-    Calc: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/10-Calculator/index.html",
-    Shop: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/13-Shopping_Cart/index.html",
-    hangman: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/21-Hangman/index.html",
-    tictactoe: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/22-Tic_Tac_Toe/index.html",
-    War: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/24-War/index.html",
-    RPSLS: "https://github.com/JohnREstes/Working-Projects/blob/main/Practice_JS/25-RPSLS/index.html",
-    weather: "http://dondeestasyolanda.com/weather/",
-    '456': "https://456word.com/"
-};
 
 const observer = new IntersectionObserver(entries => {
     if(!(entries[0].isIntersecting)){
