@@ -90,6 +90,9 @@ body {
     height: max-content;
     text-shadow: 1px 1px 2px darkgray;
 }
+#projects{
+    background: grey;
+}
 .projectGrid{
     position: relative;
     width: 100%;
@@ -329,7 +332,7 @@ body {
     border: 1px black solid;
     background-color: aqua;
     position: absolute;
-    inset:  0 0 0 0;
+    inset:  25px 25px 25px 25px;
   }
 .arrow{
     position: absolute;
@@ -337,15 +340,16 @@ body {
     transform: translateY(-50%);
     width: 0; 
     height: 0; 
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;  
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    cursor: pointer;  
 }
   #arrow-right {
-    left: 10px;
-    border-left: 20px solid green;
+    right: -25px;
+    border-left: 30px solid green;
   }
   
   #arrow-left {
-    right: 10px;
-    border-right:20px solid blue; 
+    left: -25px;    
+    border-right:30px solid blue; 
   }
