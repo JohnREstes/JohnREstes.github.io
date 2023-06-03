@@ -107,6 +107,9 @@ function changeIframe(dir){
         carouselImage[1].style.transform = 'translateX(-100%)'
         carouselImage[0].style.transform = 'translateX(-200%)'
     }
+    carouselImage[0].style.transition = '';  
+    carouselImage[1].style.transition = '';
+    carouselImage[2].style.transition = ''; 
     carouselImage.forEach(img =>{
         img.addEventListener('transitionend', ()=>{
             left = imgNum - 1;
@@ -115,7 +118,7 @@ function changeIframe(dir){
             if(right === images.length) right = 0;    
             carouselImage[0].src = images[left];   
             carouselImage[1].src = images[imgNum];
-            carouselImage[2].src = images[right];
+            carouselImage[2].src = images[right];          
             carouselImage[0].style.transform = 'translateX(-100%)'
             carouselImage[1].style.transform = 'translateX(0)'
             carouselImage[2].style.transform = 'translateX(100%)'
