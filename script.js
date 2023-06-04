@@ -71,7 +71,7 @@ function removeLoader() {
     },500)
 }
 
-const carousel = document.querySelector('.frame');
+const carousel = document.querySelector('.boundingDiv');
 const carouselImages = document.querySelector('.carousel-images');
 const images = Array.from(document.querySelectorAll('.carousel-images img'));
 
@@ -103,10 +103,10 @@ function slidePrev() {
   }
 }
 
-setInterval(()=>{
-  if(!forwardDirection)slidePrev();
-  else  slideNext();
-}, 4000); // Automatically slide to the next image every 5 seconds
+// setInterval(()=>{
+//   if(!forwardDirection)slidePrev();
+//   else  slideNext();
+// }, 4000); 
 
 const leftArrow = document.getElementById('arrow-left');
 const rightArrow = document.getElementById('arrow-right');
