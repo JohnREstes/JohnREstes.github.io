@@ -73,10 +73,13 @@ function removeLoader() {
 
 const carousel = document.querySelector('.boundingDiv');
 const carouselImages = document.querySelector('.carousel-images');
-const images = Array.from(document.querySelectorAll('.carousel-images img'));
+const images = Array.from(document.querySelectorAll('.carousel-images div'));
 
 let currentIndex = 0;
 const imageWidth = carousel.clientWidth;
+addEventListener("resize", () => {
+  imageWidth = carousel.clientWidth;
+});
 let forwardDirection = true;
 
 function slideTo(index) {
@@ -103,10 +106,10 @@ function slidePrev() {
   }
 }
 
-// setInterval(()=>{
-//   if(!forwardDirection)slidePrev();
-//   else  slideNext();
-// }, 4000); 
+setInterval(()=>{
+  if(!forwardDirection)slidePrev();
+  else  slideNext();
+}, 4000); 
 
 const leftArrow = document.getElementById('arrow-left');
 const rightArrow = document.getElementById('arrow-right');
