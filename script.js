@@ -63,12 +63,15 @@ window.onclick = function(event) {
   }
 }
 
-projectIframe.addEventListener("load", removeLoader);
+//projectIframe.addEventListener("load", removeLoader);
 
 function removeLoader() {
     setTimeout(()=>{
         loader.style.zIndex = -20;
     },500)
+}
+function clearLoader(){
+  loader.style.zIndex = -20;  
 }
 
 const carousel = document.querySelector('.boundingDiv');

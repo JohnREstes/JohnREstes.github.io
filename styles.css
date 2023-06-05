@@ -302,6 +302,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: .95;
 }
 .loader {
     border: 16px solid darkgray;

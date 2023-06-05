@@ -153,9 +153,17 @@
         <!-- Modal content -->
        <div class="modal-content">
            <span id="closeModal">&times;</span>
-           <iframe id="projectIframe" src="https://456Word.com" height="100%" width="100%" title="Iframe Example" scrolling="no"></iframe>
+           <iframe id="projectIframe" src="https://456Word.com" height="100%" width="100%" title="Iframe Example" scrolling="no" onload="clearLoader()"></iframe>
        </div>
 
        </div>
+       <script>
+        function clearLoader(){
+            let loader = document.getElementById("loaderDiv");
+            setTimeout(()=>{
+                loader.style.zIndex = -20;
+            },1000)
+            }
+       </script>
 </body>
 </html>
